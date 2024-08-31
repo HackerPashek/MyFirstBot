@@ -2,7 +2,7 @@ import asyncio
 import datetime
 import logging
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message, InlineKeyboardMarkup
+from aiogram.types import Message, InlineKeyboardButton
 from aiogram.filters.command import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -23,11 +23,11 @@ async def start(message: Message):
 # Command /helpme
 @dp.message(Command("helpme"))
 async def help(message: Message):
-	keyboard = InlineKeyboardMarkup()
-	buttons = InlineKeyboardButton(text="Мой Tg канал",
-									url="https://t.me/+JGKYwKNHx9c4Njgy")
-	keyboard.add(buttons)
-	await message.answer("Добро пожаловать! Нажмите на кнопку ниже:", reply_markup=keyboard)
+	keyboard = InlineKeyboardBuilder()
+	keyboard.add(InlineKeyboardButton(text="Мой Tg канал", 
+									  url="https://t.me/+JGKYwKNHx9c4Njgy"))
+
+	await message.answer("Нажмите на кнопку ниже:", reply_markup=keyboard.as_markup())
 
 """
 # Command /time

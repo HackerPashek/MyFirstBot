@@ -2,7 +2,7 @@ import asyncio
 import datetime
 import logging
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message, InlineKeyboardButton
+from aiogram.types import Message, InlineKeyboardMarkup
 from aiogram.filters.command import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -23,16 +23,11 @@ async def start(message: Message):
 # Command /helpme
 @dp.message(Command("helpme"))
 async def help(message: Message):
-	builer = InlineKeyboardBuilder()
-	builer.row(InlineKeyboardButton(
-		text="Мой VK",
-		url="https://vk.com/paulnotdurov")
-	)
-	builer.row(InlineKeyboardButton(
-		text="Мой Telegram",
-		url="https://t.me/MasterOfDungen")
-	)
-	await message.answer("Помощь:", reply_markup=builer.as_markup())
+	keyboard = InlineKeyboardMarkup()
+	buttons = InlineKeyboardButton(text="Мой Tg канал",
+									url="https://t.me/+JGKYwKNHx9c4Njgy")
+	keyboard.add(buttons)
+	await message.answer("Добро пожаловать! Нажмите на кнопку ниже:", reply_markup=keyboard)
 
 """
 # Command /time
@@ -55,7 +50,6 @@ async def echo(message: Message):
 # The main function
 async def main():
 	await dp.start_polling(bot)
-
 
 if __name__ == '__main__':
 	asyncio.run(main())

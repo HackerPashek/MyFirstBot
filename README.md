@@ -1,1 +1,1 @@
-Hey, I'm Paul that my first pet-project on python
+Hey, I'm Paul that's my first pet-project on Python(Aiogram)

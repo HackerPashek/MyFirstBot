@@ -10,7 +10,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # Active logging
 logging.basicConfig(level=logging.INFO)
 # Object of the bot
-bot = Bot(token="7381066612:AAFvkIQ6jW_gjEyAiPxsFZ7yhidp_Pnsngk")
+bot = Bot(token="6755764250:AAGToMeddybrKazDvrvDytVV7j2bxJH9SpU")
 # Dispatcher
 dp = Dispatcher()
 
